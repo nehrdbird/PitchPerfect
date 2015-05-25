@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uaf-un-LsS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uaf-un-LsS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -31,23 +32,38 @@
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recording Started..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HU-t2-zEk" userLabel="RecordingStateLabel">
                                 <rect key="frame" x="223" y="370" width="155" height="21"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                <color key="textColor" red="0.1019607843" green="0.21960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="119" y="370" width="163" height="20"/>
+                                </variation>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBA-cM-dsF" userLabel="StopButton">
                                 <rect key="frame" x="250" y="471" width="100" height="100"/>
                                 <state key="normal" image="StopButtonIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="175" y="440" width="50" height="50"/>
+                                </variation>
                                 <connections>
                                     <action selector="stopRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AHF-xA-IL0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap To Start Recording..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rq-ji-J05">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <accessibility key="accessibilityConfiguration" label="lTapToRecord"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                <color key="textColor" red="0.1019607843" green="0.21960784310000001" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87450980392156863" green="0.87450980392156863" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dBA-cM-dsF" firstAttribute="top" secondItem="7HU-t2-zEk" secondAttribute="bottom" constant="50" id="2VS-iu-F5X"/>
+                            <constraint firstItem="34X-Ll-yDd" firstAttribute="top" secondItem="1rq-ji-J05" secondAttribute="bottom" constant="33" id="2j1-9R-HqY"/>
+                            <constraint firstAttribute="centerX" secondItem="1rq-ji-J05" secondAttribute="centerX" id="4Z8-WC-jt9"/>
                             <constraint firstAttribute="centerY" secondItem="34X-Ll-yDd" secondAttribute="centerY" id="CoW-gF-ukp"/>
                             <constraint firstAttribute="centerX" secondItem="34X-Ll-yDd" secondAttribute="centerX" id="Ket-IE-8ez"/>
                             <constraint firstAttribute="centerX" secondItem="dBA-cM-dsF" secondAttribute="centerX" id="Rp4-Wq-l2L"/>
@@ -55,12 +71,22 @@
                             <constraint firstAttribute="centerX" secondItem="7HU-t2-zEk" secondAttribute="centerX" id="pdk-Fm-wVG"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="1rq-ji-J05"/>
+                            </mask>
                             <mask key="constraints">
+                                <exclude reference="4Z8-WC-jt9"/>
+                                <exclude reference="2j1-9R-HqY"/>
                                 <exclude reference="2VS-iu-F5X"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="1rq-ji-J05"/>
+                            </mask>
                             <mask key="constraints">
+                                <include reference="4Z8-WC-jt9"/>
+                                <include reference="2j1-9R-HqY"/>
                                 <include reference="2VS-iu-F5X"/>
                             </mask>
                         </variation>
@@ -70,6 +96,7 @@
                         <outlet property="RecordingInProgress" destination="7HU-t2-zEk" id="wBi-aW-2T1"/>
                         <outlet property="bRecordButton" destination="34X-Ll-yDd" id="WjJ-4t-kJL"/>
                         <outlet property="bStopButton" destination="dBA-cM-dsF" id="yCC-TP-ieN"/>
+                        <outlet property="lTapToRecord" destination="1rq-ji-J05" id="Ctw-z6-8Md"/>
                         <segue destination="ZqT-jv-EDe" kind="show" identifier="stopRecording" id="I7e-CU-KPi"/>
                     </connections>
                 </viewController>
@@ -148,10 +175,10 @@
                             <mask key="constraints">
                                 <exclude reference="I4R-k7-zU2"/>
                                 <exclude reference="Tje-jg-s51"/>
-                                <exclude reference="8zS-SR-WX1"/>
-                                <exclude reference="R1V-OZ-1Sg"/>
                                 <exclude reference="8dN-3Z-dTR"/>
                                 <exclude reference="gl0-ms-U82"/>
+                                <exclude reference="8zS-SR-WX1"/>
+                                <exclude reference="R1V-OZ-1Sg"/>
                                 <exclude reference="3qX-WQ-Itx"/>
                                 <exclude reference="Rhh-d8-F6A"/>
                             </mask>
@@ -166,10 +193,10 @@
                             <mask key="constraints">
                                 <include reference="I4R-k7-zU2"/>
                                 <include reference="Tje-jg-s51"/>
-                                <include reference="8zS-SR-WX1"/>
-                                <include reference="R1V-OZ-1Sg"/>
                                 <include reference="8dN-3Z-dTR"/>
                                 <include reference="gl0-ms-U82"/>
+                                <include reference="8zS-SR-WX1"/>
+                                <include reference="R1V-OZ-1Sg"/>
                                 <include reference="3qX-WQ-Itx"/>
                                 <include reference="Rhh-d8-F6A"/>
                             </mask>

@@ -14,6 +14,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var RecordingInProgress: UILabel!
     @IBOutlet weak var bStopButton: UIButton!
     @IBOutlet weak var bRecordButton: UIButton!
+    @IBOutlet weak var lTapToRecord: UILabel!
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio: RecordedAudio!
@@ -26,6 +27,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidAppear(animated: Bool) {
         //Hide the stop button
         bStopButton.hidden = true;
+        lTapToRecord.hidden = false;
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,9 +38,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if(flag) {
             //Save recoded video
-            recordedAudio = RecordedAudio()
-            recordedAudio.title = recorder.url.lastPathComponent
-            recordedAudio.filePathUrl = recorder.url
+            recordedAudio = RecordedAudio (filePathUrl: recorder.url, title: recorder.url.lastPathComponent!)
             
             //Move to next scene and perform segue
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
@@ -56,7 +56,6 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
             let data = sender as! RecordedAudio
             playSoundVC.receivedAudio = data
         }
-        
     }
     
     @IBAction func stopRecording(sender: UIButton) {
@@ -74,6 +73,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         // UI Treatment
         RecordingInProgress.hidden = false;
         bStopButton.hidden = false;
+        lTapToRecord.hidden = true;
         
         //Setting path for saving the audio
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
