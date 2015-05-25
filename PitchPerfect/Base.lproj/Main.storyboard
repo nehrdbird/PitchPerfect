@@ -134,7 +134,7 @@
                                     <action selector="playFastButton:" destination="ZqT-jv-EDe" eventType="touchUpInside" id="DVT-kN-ZMS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr7-2M-Il5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr7-2M-Il5" userLabel="bPlayChipmunk">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="ChipmunkIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,13 +143,22 @@
                                     <action selector="playChipmunkButton:" destination="ZqT-jv-EDe" eventType="touchUpInside" id="Vw3-7s-lPW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUa-dF-bjv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUa-dF-bjv" userLabel="bPlayDarthVader">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="DarthVaderIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="playDarthVaderButton:" destination="ZqT-jv-EDe" eventType="touchUpInside" id="vcw-Za-fk1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIe-y8-B5y">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="StopButtonIcon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopPlaying:" destination="ZqT-jv-EDe" eventType="touchUpInside" id="ZQj-ta-dlp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -159,7 +168,9 @@
                             <constraint firstItem="vUa-dF-bjv" firstAttribute="top" secondItem="bhx-61-Feq" secondAttribute="bottom" constant="33" id="3qX-WQ-Itx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bhx-61-Feq" secondAttribute="trailing" constant="33" id="8dN-3Z-dTR"/>
                             <constraint firstItem="dr7-2M-Il5" firstAttribute="top" secondItem="UpF-j4-e45" secondAttribute="bottom" constant="33" id="8zS-SR-WX1"/>
+                            <constraint firstAttribute="centerX" secondItem="yIe-y8-B5y" secondAttribute="centerX" constant="-2" id="9oK-gl-TTX"/>
                             <constraint firstItem="UpF-j4-e45" firstAttribute="top" secondItem="AB4-Xo-7Yn" secondAttribute="bottom" constant="33" id="I4R-k7-zU2"/>
+                            <constraint firstItem="wgC-Ix-CPM" firstAttribute="top" secondItem="yIe-y8-B5y" secondAttribute="bottom" constant="33" id="NW7-5A-mfN"/>
                             <constraint firstItem="dr7-2M-Il5" firstAttribute="leading" secondItem="wol-y7-qfa" secondAttribute="leadingMargin" constant="33" id="R1V-OZ-1Sg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vUa-dF-bjv" secondAttribute="trailing" constant="33" id="Rhh-d8-F6A"/>
                             <constraint firstItem="UpF-j4-e45" firstAttribute="leading" secondItem="wol-y7-qfa" secondAttribute="leadingMargin" constant="33" id="Tje-jg-s51"/>
@@ -171,16 +182,19 @@
                                 <exclude reference="bhx-61-Feq"/>
                                 <exclude reference="dr7-2M-Il5"/>
                                 <exclude reference="vUa-dF-bjv"/>
+                                <exclude reference="yIe-y8-B5y"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="I4R-k7-zU2"/>
                                 <exclude reference="Tje-jg-s51"/>
-                                <exclude reference="8dN-3Z-dTR"/>
-                                <exclude reference="gl0-ms-U82"/>
                                 <exclude reference="8zS-SR-WX1"/>
                                 <exclude reference="R1V-OZ-1Sg"/>
+                                <exclude reference="8dN-3Z-dTR"/>
+                                <exclude reference="gl0-ms-U82"/>
                                 <exclude reference="3qX-WQ-Itx"/>
                                 <exclude reference="Rhh-d8-F6A"/>
+                                <exclude reference="9oK-gl-TTX"/>
+                                <exclude reference="NW7-5A-mfN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -189,19 +203,25 @@
                                 <include reference="bhx-61-Feq"/>
                                 <include reference="dr7-2M-Il5"/>
                                 <include reference="vUa-dF-bjv"/>
+                                <include reference="yIe-y8-B5y"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="I4R-k7-zU2"/>
                                 <include reference="Tje-jg-s51"/>
-                                <include reference="8dN-3Z-dTR"/>
-                                <include reference="gl0-ms-U82"/>
                                 <include reference="8zS-SR-WX1"/>
                                 <include reference="R1V-OZ-1Sg"/>
+                                <include reference="8dN-3Z-dTR"/>
+                                <include reference="gl0-ms-U82"/>
                                 <include reference="3qX-WQ-Itx"/>
                                 <include reference="Rhh-d8-F6A"/>
+                                <include reference="9oK-gl-TTX"/>
+                                <include reference="NW7-5A-mfN"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="bStopAudio" destination="yIe-y8-B5y" id="iIa-JJ-HPG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2O-NR-ELh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -19,12 +19,8 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder:AVAudioRecorder!
     var recordedAudio: RecordedAudio!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         //Hide the stop button
         bStopButton.hidden = true;
         lTapToRecord.hidden = false;

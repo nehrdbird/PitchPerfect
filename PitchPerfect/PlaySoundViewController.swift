@@ -16,10 +16,13 @@ class PlaySoundViewController: UIViewController {
     var receivedAudio: RecordedAudio!
     var audioFile:AVAudioFile!
 
+    @IBOutlet weak var bStopAudio: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bStopAudio.hidden = true;
+
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
         audioPlayer.enableRate = true;
         
@@ -50,25 +53,21 @@ class PlaySoundViewController: UIViewController {
     }
     
     @IBAction func stopPlaying(sender: UIButton) {
-        audioPlayer.stop();
+        stopAudioPlay()
+        bStopAudio.hidden = true;
+
     }
     
     func playSoundVariableRate(rate: Float){
-        audioPlayer.stop()
-        audioPlayer.currentTime = 0.0;
-        audioEngine.stop()
-        audioEngine.reset()
-        
+        stopAudioPlay()
         audioPlayer.rate = rate;
+        bStopAudio.hidden = false;
         audioPlayer.play()
     }
     
     func playSoundVariablePitch(pitch: Float){
-        audioPlayer.stop()
-        audioPlayer.currentTime = 0.0;
-        audioEngine.stop()
-        audioEngine.reset()
-
+        stopAudioPlay()
+        
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
@@ -82,8 +81,16 @@ class PlaySoundViewController: UIViewController {
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
         audioEngine.startAndReturnError(nil)
 
+        bStopAudio.hidden = false;
         audioPlayerNode.play()
 
+    }
+    
+    func stopAudioPlay(){
+        audioPlayer.stop()
+        audioPlayer.currentTime = 0.0;
+        audioEngine.stop()
+        audioEngine.reset()
     }
 
 }
